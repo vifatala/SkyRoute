@@ -14,6 +14,7 @@ def greet():
 
 def skyroute():
   greet()
+  new_route()
 
 def set_start_and_end(start_point, end_point):
   if start_point is not None:
@@ -53,6 +54,9 @@ def get_end():
 
 def new_route(start_point=None, end_point=None):
   start_point, end_point = set_start_and_end(start_point, end_point)
+  shortest_route = get_route(start_point, end_point)
+  shortest_route_string = '\n'.join(shortest_route)
+  return print(f"The shortest metro route from {start_point} to {end_point} is:\n{shortest_route_string}")
   
 
 def get_route(start_point, end_point):
@@ -68,5 +72,6 @@ def get_route(start_point, end_point):
 
   shortest_route = min(routes, key=len)
   return shortest_route
+  
 
-print(get_route('Marine Building', 'Central Park'))
+skyroute()
